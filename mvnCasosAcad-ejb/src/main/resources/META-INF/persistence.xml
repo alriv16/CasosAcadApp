@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="CasosAcadmvn_mvnCasosAcad-ejb_ejb_1.0-SNAPSHOTPU" transaction-type="JTA">
+    <jta-data-source>recursosCasosAcad</jta-data-source>
+    <class>casosacad_tpi.casosacadlibmvn.Caso</class>
+    <class>casosacad_tpi.casosacadlibmvn.CasoDetalle</class>
+    <class>casosacad_tpi.casosacadlibmvn.CasoDetalleRequisito</class>
+    <class>casosacad_tpi.casosacadlibmvn.CasoDetalleRequisitoAtestado</class>
+    <class>casosacad_tpi.casosacadlibmvn.Paso</class>
+    <class>casosacad_tpi.casosacadlibmvn.PasoRequisito</class>
+    <class>casosacad_tpi.casosacadlibmvn.Proceso</class>
+    <class>casosacad_tpi.casosacadlibmvn.Requisito</class>
+    <class>casosacad_tpi.casosacadlibmvn.Solicitud</class>
+    <class>casosacad_tpi.casosacadlibmvn.TipoPaso</class>
+    <class>casosacad_tpi.casosacadlibmvn.TipoRequisito</class>
+    <class>casosacadmvn.casosacadlibmvn.Caso</class>
+    <class>casosacadmvn.casosacadlibmvn.CasoDetalle</class>
+    <class>casosacadmvn.casosacadlibmvn.CasoDetalleRequisito</class>
+    <class>casosacadmvn.casosacadlibmvn.CasoDetalleRequisitoAtestado</class>
+    <class>casosacadmvn.casosacadlibmvn.Paso</class>
+    <class>casosacadmvn.casosacadlibmvn.PasoRequisito</class>
+    <class>casosacadmvn.casosacadlibmvn.Proceso</class>
+    <class>casosacadmvn.casosacadlibmvn.ProcesoDetalle</class>
+    <class>casosacadmvn.casosacadlibmvn.Requisito</class>
+    <class>casosacadmvn.casosacadlibmvn.Solicitud</class>
+    <class>casosacadmvn.casosacadlibmvn.TipoPaso</class>
+    <class>casosacadmvn.casosacadlibmvn.TipoRequisito</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+  <persistence-unit name="CasosAcadmvn_mvnCasosAcad-ejb_ejb_1.0-SNAPSHOTPU2" transaction-type="JTA">
+    <jta-data-source>recursosCasosAcad</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>
