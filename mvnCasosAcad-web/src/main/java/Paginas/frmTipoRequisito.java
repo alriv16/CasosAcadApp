@@ -13,6 +13,7 @@ import javax.faces.view.ViewScoped;
 import casosacadmvn.casosacadlibmvn.TipoRequisito;
 import CasosAcadEntities.TipoRequisitoFacadeLocal;
 import java.io.Serializable;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 /**
  *
@@ -27,6 +28,7 @@ public class frmTipoRequisito implements Serializable {
      * Creates a new instance of frmTipoRequisito
      */
     public frmTipoRequisito() {
+        
     }
     
      @EJB
@@ -34,6 +36,16 @@ public class frmTipoRequisito implements Serializable {
   
      
     private List<TipoRequisito> registro;
+  
+    private TipoRequisito tipo_requisito;
+
+    public TipoRequisito getTipo_requisito() {
+        return tipo_requisito;
+    }
+
+    public void setTipo_requisito(TipoRequisito tipo_requisito) {
+        this.tipo_requisito = tipo_requisito;
+    }
     
     @PostConstruct
     public void iniciarModelo(){
@@ -58,6 +70,16 @@ public class frmTipoRequisito implements Serializable {
 
     public void setRegistro(List<TipoRequisito> registro) {
         this.registro = registro;
+    }
+    
+    public TipoRequisito CrearNuevo(){
+            this.tipo_requisito= new TipoRequisito();
+            this.tipo_requisito.setActivo(true);
+                return this.tipo_requisito;
+    }
+    
+    public void crearNuevoHandler(ActionEvent ae){
+        this.CrearNuevo();
     }
     
     
