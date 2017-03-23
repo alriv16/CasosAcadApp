@@ -43,17 +43,25 @@
         </h:dataTable>
                 <h:form id="Controles">
                     <h:panelGrid>
-                        <h:commandButton value="NUEVO" actionListener="#{frmTipoRequisito.crearNuevoHandler}" type="submit">
+                        <h:commandButton value="NUEVO" actionListener="#{frmTipoRequisito.crearNuevoHandler()}" type="submit">
                         </h:commandButton>
-                                                
+                
                     </h:panelGrid>
-                </h:form>
+                 </h:form>
                 <h:form id="frmTipoRe">
                     <h:outputLabel value="Nombre:" for ="txtNombre">   
                     </h:outputLabel>
                     <h:inputText id="txtNombre" value="#{frmTipoRequisito.tipo_requisito.nombre}"></h:inputText>
                 
                 </h:form>
+                
+                <h:form id="Controles">
+                    <h:panelGrid>
+                        <h:commandButton value="NUEVO" actionListener="#{frmTipoRequisito.crearNuevoHandler(r)}" type="submit">
+                        </h:commandButton>
+                                                
+                    </h:panelGrid>
+               
                     
             </ui:insert>
         </div>

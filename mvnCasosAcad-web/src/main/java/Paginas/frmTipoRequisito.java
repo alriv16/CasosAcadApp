@@ -37,7 +37,7 @@ public class frmTipoRequisito implements Serializable {
      
     private List<TipoRequisito> registro;
   
-    private TipoRequisito tipo_requisito;
+    private TipoRequisito tipo_requisito=new TipoRequisito();
 
     public TipoRequisito getTipo_requisito() {
         return tipo_requisito;
@@ -47,14 +47,13 @@ public class frmTipoRequisito implements Serializable {
         this.tipo_requisito = tipo_requisito;
     }
     
-    @PostConstruct
-    public void iniciarModelo(){
-    try{
-        this.registro=tReq.findAll();
-    } catch(Exception ex){
-    
-    }
-    }
+    /**
+     *
+     * @return
+     */
+   
+    public List<TipoRequisito> findAll(){
+    return this.tReq.findAll();}
 
     public TipoRequisitoFacadeLocal gettReq() {
         return tReq;
@@ -72,15 +71,30 @@ public class frmTipoRequisito implements Serializable {
         this.registro = registro;
     }
     
-    public TipoRequisito CrearNuevo(){
-            this.tipo_requisito= new TipoRequisito();
-            this.tipo_requisito.setActivo(true);
-                return this.tipo_requisito;
-    }
+    public String crear(){
+        this.tReq.create(this.tipo_requisito);
+        this.tipo_requisito=new TipoRequisito();
+        return "index";
+
+}
+    public void borrar(TipoRequisito tr){
+        this.tReq.remove(tr);
+
+}
+
+    public String editar(TipoRequisito tr) {
+
+        this.tipo_requisito= tr;
+        return "Editar";
+}
+    public String Editar() {
+
+        this.tReq.edit(this.tipo_requisito);
+        return "index";
+}
     
-    public void crearNuevoHandler(ActionEvent ae){
-        this.CrearNuevo();
-    }
+    
+    
     
     
     
