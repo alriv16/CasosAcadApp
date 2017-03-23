@@ -7,7 +7,6 @@ package Paginas;
 
 import CasosAcadEntities.TipoPasoFacadeLocal;
 import casosacadmvn.casosacadlibmvn.TipoPaso;
-import casosacadmvn.casosacadlibmvn.TipoRequisito;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -27,6 +26,7 @@ public class frmTipoPaso implements Serializable{
     private TipoPasoFacadeLocal tipoPasoFacade;
     
     private List<TipoPaso> registro;
+    private TipoPaso tipoPaso= new TipoPaso();
     
     
 
@@ -60,4 +60,30 @@ public class frmTipoPaso implements Serializable{
     public void setRegistro(List<TipoPaso> registro) {
         this.registro = registro;
     }
+    
+    public String crear(){
+            this.tipoPasoFacade.create(this.tipoPaso);
+        this.tipoPaso=new TipoPaso();
+        return "tipoPaso";
+
+}
+    public void borrar(TipoPaso tp){
+        this.tipoPasoFacade.remove(tp);
+
+}
+
+    public String editar(TipoPaso tp) {
+
+        this.tipoPaso= tp;
+        return "Editar";
+}
+    public String Editar() {
+
+        this.tipoPasoFacade.edit(this.tipoPaso);
+        return "index";
+}
+    
+    
+    
+    
 }
