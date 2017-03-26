@@ -14,38 +14,29 @@
 
     <h:body>
 
-        <div id="top" class="top">
-            <ui:insert name="top">TIPO REQUISITO</ui:insert>
-        </div>
-        <div>
-            <div id="left">
-                <ui:insert name="left">
-                    <div class="cuerpo">
-            <nav id="menu">
+        <div id="top" class="top" align="center">
+            <ui:insert name="top">Gestion de Casos
+             <nav id="menu">
                 <h:form>
                     <ul>
-                        <li><h:commandLink action="agregar">Agregar</h:commandLink></li>
-                        
+                        <li><h:commandLink action="Agregar">Agregar</h:commandLink></li>
+                       
                     </ul> 
                 </h:form>
             </nav>
- 
-            <article class="contenido">
-                <ui:insert name="contenido">
-                    
-                </ui:insert>
-            </article>
+            </ui:insert>
         </div>
-                </ui:insert>
+        
 
-        <div id="content" class="center_content">
+        <div id="content" class="center_content" align="center">
             <ui:insert name="content">
-                <f:view>
+            
+             <f:view>
 
 
-                    <h:form>
-                        <h1><h:outputText value="List"/></h1>
-                        <h:dataTable value="#{frmTipoRequisito.findAll()}" var="item">
+                    <h:form id="frmTipoRequisito">
+                        <h1><h:outputText value="TIPO DE REQUISITO"/></h1>
+                        <h:dataTable value="#{frmTipoRequisito.findAll()}" var="item" >
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="IdTipoRequisito"/>
@@ -59,10 +50,15 @@
                                 <h:outputText value="#{item.nombre}"/>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Activo"/>
+                                <f:facet name="header"> 
+                                    <h:outputText value="Estado"/>
                                 </f:facet>
-                                <h:outputText value="#{item.activo}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Estado"/>
+                                </f:facet>
+                                <h:outputText value="#{item.activo?'Activo':'Inactivo'}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
@@ -70,25 +66,56 @@
                                 </f:facet>
                                 <h:outputText value="#{item.observacion}"/>
                             </h:column>
+                 
                             <h:column>
                 <f:facet name="header">Opciones</f:facet>
-                <h:commandLink value="borrar" action="#{frmTipoRequisito.borrar(item)}" onclick="return confirm('Esta seguro que quiere borrar?')"></h:commandLink>
-                               
+                 <h:commandButton value="borrar" action="#{frmTipoRequisito.borrar(item)}" onclick="return confirm('Esta seguro que quiere borrar?')">
+                 <f:ajax execute="@form" render="frmTipoRequisito"></f:ajax>
+                 </h:commandButton>            
                 </h:column>
                 <h:column>
                 <f:facet name="header">Editar</f:facet>
-                <h:commandLink value="editar" action="#{frmTipoRequisito.editar(item)}" ></h:commandLink>
-                                
-                
+                <h:commandButton value="editar" action="#{frmTipoRequisito.editar(item)}" >
+                    <f:ajax execute="@form" render="frmTipoRequisito"></f:ajax>
+                </h:commandButton>
                 </h:column>
+                            
+                 <h:column>
+                <f:facet name="header">Agregar</f:facet>
+              
+                </h:column>
+                            
+                            
                         </h:dataTable>
-                  </h:form> 
-                </f:view>
+                  </h:form>
+               
+                 <h:form id="frmTipoRequisitoAgregar">
 
+            <h2><h:outputText value="Agregar"/></h2>
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="Nombre:" for="nombre" />
+                <h:inputText id="nombre" value="#{frmTipoRequisito.tipo_requisito.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                <h:outputLabel value="Estado" for="estado"/>
+                <h:selectBooleanCheckbox id="estado" value="#{frmTipoRequisito.tipo_requisito.activo}"> Activo </h:selectBooleanCheckbox>
+                <h:outputLabel value="Observación:" for="observacion" />
+                <h:inputText id="observacion" value="#{frmTipoRequisito.tipo_requisito.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
+                <h:commandButton value="Guardar" action="#{frmTipoRequisito.crear()}">
+                    
+                </h:commandButton>
+               
+            </h:panelGrid> 
+        </h:form>
+                    
+                </f:view>
             </ui:insert>
         </div>
-            </div>
-        </div>
+       
+                    
+              
+      
+       
+
     </h:body>
 
 </html>

@@ -6,15 +6,16 @@
 package Paginas;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
+
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import casosacadmvn.casosacadlibmvn.TipoRequisito;
 import CasosAcadEntities.TipoRequisitoFacadeLocal;
 import java.io.Serializable;
-import javax.faces.event.ActionEvent;
-import javax.inject.Inject;
+import java.util.ArrayList;
+import javax.faces.component.html.HtmlDataTable;
+
 /**
  *
  * @author alejandra
@@ -23,7 +24,7 @@ import javax.inject.Inject;
 @Named(value = "frmTipoRequisito")
 @ViewScoped
 public class frmTipoRequisito implements Serializable {
-
+ 
     /**
      * Creates a new instance of frmTipoRequisito
      */
@@ -33,7 +34,15 @@ public class frmTipoRequisito implements Serializable {
     
      @EJB
     private TipoRequisitoFacadeLocal tReq;
-  
+    private TipoRequisito tRequisitoSeleccionado;
+
+    public TipoRequisito gettRequisitoSeleccionado() {
+        return tRequisitoSeleccionado;
+    }
+
+    public void settRequisitoSeleccionado(TipoRequisito tRequisitoSeleccionado) {
+        this.tRequisitoSeleccionado = tRequisitoSeleccionado;
+    }
      
     private List<TipoRequisito> registro;
   
@@ -85,6 +94,7 @@ public class frmTipoRequisito implements Serializable {
     public String editar(TipoRequisito tr) {
 
         this.tipo_requisito= tr;
+        this.tReq.edit(tipo_requisito);
         return "Editar";
 }
     public String Editar() {

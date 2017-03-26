@@ -21,8 +21,6 @@
         
         
         <f:view>
-
-
             <h:form>
                 <h1><h:outputText value="Editar"/></h1>
                 <h:panelGrid columns="2">
@@ -31,10 +29,10 @@
                     <h:outputLabel value="Nombre:" for="nombre" />
                     <h:inputText id="nombre" value="#{frmTipoRequisito.tipo_requisito.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
                     <h:outputLabel value="Activo:" for="activo" />
-                    <h:inputText id="activo" value="#{frmTipoRequisito.tipo_requisito.observacion}" title="Activo" required="true" requiredMessage="The Activo field is required."/>
+                    <h:inputText id="activo" value="#{frmTipoRequisito.tipo_requisito.activo}" title="Estado" required="true" requiredMessage="The Activo field is required."/>
                     <h:outputLabel value="Observacion:" for="observacion" />
-                    <h:inputText id="observacion" value="#{frmTipoRequisito.tipo_requisito.activo}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
-                    <h:commandButton value="Guardar" action="#{frmTipoRequisito.editar()}"></h:commandButton>
+                    <h:inputText id="observacion" value="#{frmTipoRequisito.tipo_requisito.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
+                    <h:commandButton value="Guardar" action="#{frmTipoRequisito.Editar()}"></h:commandButton>
                 
                 </h:panelGrid>
             </h:form>
