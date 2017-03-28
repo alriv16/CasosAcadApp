@@ -28,6 +28,11 @@ public class frmTipoPaso implements Serializable{
     
     private List<TipoPaso> registro;
     private TipoPaso tipoPaso= new TipoPaso();
+    private boolean editarS,editarE;
+
+    public boolean isEditarS() {
+        return editarS;
+    }
     
     
 
@@ -67,11 +72,6 @@ public class frmTipoPaso implements Serializable{
 
 }
 
-    public String editar(TipoPaso tp) {
-
-        this.tipoPaso= tp;
-        return "editPaso";
-}
     public String Editar() {
 
         this.tipoPasoFacade.edit(this.tipoPaso);
@@ -86,7 +86,35 @@ public class frmTipoPaso implements Serializable{
         this.tipoPaso = tipoPaso;
     }
     
+    public void mostrar(){
+      editarS=true;
+      editarE=false;
+   
+   }
+   public void ocultar(){
+   editarE=false;
+   editarS=false;
+   
+   }
+   
+    public void editar(TipoPaso tp) {
+
+        this.tipoPaso= tp;
+        editarE=true;
+        editarS=false;
+}
+    public String Guardar() {
+        
+        editarE=false;
+        editarS=true;
+        this.tipoPasoFacade.edit(this.tipoPaso);
+        return "tipoPaso";
+}
     
+    public boolean isEdit(){
+    return editarE;  
+    }
+   
     
     
 }

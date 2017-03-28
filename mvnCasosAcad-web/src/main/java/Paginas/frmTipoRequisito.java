@@ -35,7 +35,11 @@ public class frmTipoRequisito implements Serializable {
      @EJB
     private TipoRequisitoFacadeLocal tReq;
     private TipoRequisito tRequisitoSeleccionado;
-    private boolean editar;
+    private boolean editarE,editarS;
+
+    public boolean isEditarS() {
+        return editarS;
+    }
     
     
     public TipoRequisito gettRequisitoSeleccionado() {
@@ -94,20 +98,34 @@ public class frmTipoRequisito implements Serializable {
 
 }
 
+   public void mostrar(){
+      editarS=true;
+      editarE=false;
+   
+   }
+   public void ocultar(){
+   editarE=false;
+   editarS=false;
+   
+   }
+   
+   
     public void editar(TipoRequisito tr) {
 
         this.tipo_requisito= tr;
-        editar=true;
+        editarE=true;
+        editarS=false;
 }
     public String Guardar() {
         
-        editar=false;
+        editarE=false;
+        editarS=true;
         this.tReq.edit(this.tipo_requisito);
         return "tipoRequisito";
 }
     
     public boolean isEdit(){
-    return editar;  
+    return editarE;  
     }
    
  
