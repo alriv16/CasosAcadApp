@@ -83,9 +83,10 @@ public class frmTipoRequisito implements Serializable {
     }
     
     public String crear(){
+       
         this.tReq.create(this.tipo_requisito);
         this.tipo_requisito=new TipoRequisito();
-        return "Agregar";
+        return "tipoRequisito";
 
 }
    public void borrar(TipoRequisito tr){
@@ -102,13 +103,16 @@ public class frmTipoRequisito implements Serializable {
         
         editar=false;
         this.tReq.edit(this.tipo_requisito);
-        return "index";
+        return "tipoRequisito";
 }
     
     public boolean isEdit(){
     return editar;  
     }
    
+ 
+    
+  
   
     
     

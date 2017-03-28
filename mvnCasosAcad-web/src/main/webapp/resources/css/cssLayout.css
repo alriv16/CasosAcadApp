@@ -1,7 +1,7 @@
 
 #top {
     position: relative;
-    background-color: #036fab;
+    background-color: #f91a1a;
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
@@ -9,7 +9,7 @@
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
+    background-color: #ffffff;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
@@ -28,20 +28,52 @@
     width: 150px;
 }
 
+.table-striped>tbody>tr:nth-child(odd)>td, 
+      .table-striped>tbody>tr:nth-child(odd)>th {
+       background-color: #f0efea;
+      border-radius: 5px;
+      }
+      .table-striped>tbody>tr:nth-child(even)>td, 
+      .table-striped>tbody>tr:nth-child(even)>th {
+       background-color: #c0b2b5;
+       border-radius: 5px;
+      }
+      .table-striped>thead>tr>th {
+         background-color: #edb83d;
+         border-radius: 5px;
+      }
+      
+      .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: #550055;
+  color:#eeeeee;
+  overflow:scroll;
+}
+
+#events {
+        margin-bottom: 1em;
+        padding: 1em;
+        background-color: #f6f6f6;
+        border: 1px solid #999;
+        border-radius: 3px;
+        height: 100px;
+        overflow: auto;
+    }
+
+
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #ffffff;
     padding: 5px;
 }
 
 .left_content {
-    background-color: #dddddd;
+    background-color: #ffffff;
     padding: 5px;
     margin-left: 170px;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: #ffffff;
     padding: 5px;
     margin: 0px 170px 0px 170px;
 }
