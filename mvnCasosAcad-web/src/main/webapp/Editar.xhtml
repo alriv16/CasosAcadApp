@@ -3,7 +3,8 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./index.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:BotonesTPI="http://xmlns.jcp.org/jsf/composite/BotonesTPI">
 
     <ui:define name="top">
         top
@@ -17,33 +18,18 @@
         right
     </ui:define>
 
-    <ui:define name="content">
-        
-        
-        <f:view>
-            <h:form>
-                <h1><h:outputText value="Editar"/></h1>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="IdTipoRequisito:" for="idTipoRequisito" />
-                    <h:inputText id="idTipoRequisito" readonly="true" value="#{frmTipoRequisito.tipo_requisito.idTipoRequisito}" title="IdTipoRequisito" required="true" requiredMessage="The IdTipoRequisito field is required."/>
-                    <h:outputLabel value="Nombre:" for="nombre" />
-                    <h:inputText id="nombre" value="#{frmTipoRequisito.tipo_requisito.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
-                    <h:outputLabel value="Activo:" for="activo" />
-                    <h:inputText id="activo" value="#{frmTipoRequisito.tipo_requisito.activo}" title="Estado" required="true" requiredMessage="The Activo field is required."/>
-                    <h:outputLabel value="Observacion:" for="observacion" />
-                    <h:inputText id="observacion" value="#{frmTipoRequisito.tipo_requisito.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
-                    <h:commandButton value="Guardar" action="#{frmTipoRequisito.Editar()}"></h:commandButton>
-                
-                </h:panelGrid>
-            </h:form>
+    <ui:define name="bottom">
+         <f:view>
+               
+        </h:form>
+    </h:panelGroup>
+
         </f:view>
+       
     </ui:define>
 
         
-    <ui:define name="bottom">
-       BOTONES
-    </ui:define>
-    
+
     
 
 </ui:composition>

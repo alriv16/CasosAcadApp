@@ -8,14 +8,15 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="btnNuevo" method-signature="java.lang.String action()" required="true"></cc:attribute>
+        <cc:attribute name="btnNuevo" method-signature="java.lang.String action()" required="true" ></cc:attribute>
         <cc:attribute name="btnTexto" required="true"> </cc:attribute>
+        
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <h:commandButton value="#{cc.attrs.btnTexto}" action="#{cc.attrs.btnNuevo}" >
-            <f:ajax render="@all" execute="@all"></f:ajax>
+          
         </h:commandButton>
         
         
