@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./index.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:define name="titulo">
+       Agregar
+    </ui:define>
+
+    <ui:define name="cabecera">
+        Agregar
+    </ui:define>
+
+    <ui:define name="content">
+      
+                        <h:form>
+                           
+
+                               <h:commandLink action="Agregar" >ADD</h:commandLink>
+
+                           
+                        </h:form>
+                   
+       <f:view>
+                    <div style="height: 100px; overflow: auto;">
+                        <h:form rendered="#{not empty frmTipoRequisito.findAll()}">
+                            <h:dataTable value="#{frmTipoRequisito.findAll()}" var="item"
+                                         styleClass="table" headerClass="table-header"
+                                         rowClasses="table-odd-row,table-even-row">
+
+                                <h:column>
+                                    <f:facet name="header">Id</f:facet>
+                                    <h:outputText value="#{item.idTipoRequisito}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    <h:outputText value="#{item.nombre}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Activo</f:facet>
+                                    <h:outputText value="#{item.activo?'activo':'inactivo'}" />
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Observacion</f:facet>
+                                    <h:outputText value="#{item.observacion}" />
+                                </h:column>
+
+
+                                <h:column>
+                                    <h:commandButton value="Seleccionar" action="#{frmTipoRequisito.editar(item)}" />
+
+                                </h:column>
+
+
+                            </h:dataTable>
+
+                        </h:form></div>
+           <h:panelGroup rendered="#{empty frmTipoRequisito.findAll()}">
+                        <h:outputText value=" Sin Datos"/>
+                    </h:panelGroup>
+           <h:panelGroup rendered="#{!frmTipoRequisito.edit}">
+
+
+                    </h:panelGroup>
+           <h:panelGroup rendered="#{frmTipoRequisito.edit}">
+
+
+                        <h:form>
+
+                            <h:outputText value=" Editar Id: #{frmTipoRequisito.tipo_requisito.idTipoRequisito}"/>
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="IdTipoRequisito:" for="idTipoRequisito" />
+                                <h:inputText id="idTipoRequisito" readonly="true" value="#{frmTipoRequisito.tipo_requisito.idTipoRequisito}" title="IdTipoRequisito" required="true" requiredMessage="The IdTipoRequisito field is required."/>
+                                <h:outputLabel value="Nombre:" for="nombre" />
+                                <h:inputText id="nombre" value="#{frmTipoRequisito.tipo_requisito.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                                <h:selectOneMenu value="#{frmTipoRequisito.tipo_requisito.activo}" id="estado">
+                                    <f:selectItem itemValue="true" itemLabel="Activo"></f:selectItem>
+                                    <f:selectItem itemValue="false" itemLabel="Inactivo"></f:selectItem>
+                                </h:selectOneMenu>
+                                <h:outputLabel value="Observacion:" for="observacion" />
+                                <h:inputText id="observacion" value="#{frmTipoRequisito.tipo_requisito.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
+
+
+                            </h:panelGrid>
+
+                     
+
+                                <h:commandButton value="Guardar" action="#{frmTipoRequisito.Guardar()}" />
+                                <h:commandButton value="Borrar" action="#{frmTipoRequisito.borrar(item)}" />
+                                <h:commandButton value="Cancelar" action="#{frmTipoRequisito.cancelar()}" />
+                                
+                         
+                        </h:form>
+                    </h:panelGroup>
+                </f:view>
+
+    </ui:define>
+
+</ui:composition>

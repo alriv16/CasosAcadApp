@@ -13,8 +13,8 @@ import javax.faces.view.ViewScoped;
 import casosacadmvn.casosacadlibmvn.TipoRequisito;
 import CasosAcadEntities.TipoRequisitoFacadeLocal;
 import java.io.Serializable;
-import java.util.ArrayList;
-import javax.faces.component.html.HtmlDataTable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,8 +67,23 @@ public class frmTipoRequisito implements Serializable {
      * @return
      */
    
-    public List<TipoRequisito> findAll(){
-    return this.tReq.findAll();}
+   public List<TipoRequisito> findAll() {
+        List<TipoRequisito> salida = null;
+
+        try {
+            salida = this.tReq.findAll();
+
+            return salida;
+
+        } catch (Exception e) {
+
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+
+        }
+
+        return salida;
+
+    }
 
     public TipoRequisitoFacadeLocal gettReq() {
         return tReq;
@@ -87,15 +102,24 @@ public class frmTipoRequisito implements Serializable {
     }
     
     public String crear(){
-       
-        this.tReq.create(this.tipo_requisito);
+        try {
+            this.tReq.create(this.tipo_requisito);
         this.tipo_requisito=new TipoRequisito();
-        return "tipoRequisito";
+        return "TipoRequisito";
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        }
+        return "TipoRequisito";
+        
 
 }
    public void borrar(TipoRequisito tr){
-        this.tReq.remove(tr);
+        try {
+           this.tReq.remove(tr);
 
+       } catch (Exception e) {
+           Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+       }
 }
 
    public void mostrar(){
@@ -111,24 +135,35 @@ public class frmTipoRequisito implements Serializable {
    
    
     public void editar(TipoRequisito tr) {
-
-        this.tipo_requisito= tr;
+        try {
+             this.tipo_requisito= tr;
         editarE=true;
         editarS=false;
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        }
+       
 }
     public String Guardar() {
         
-        editarE=false;
+        try {
+            editarE=false;
         editarS=true;
         this.tReq.edit(this.tipo_requisito);
-        return "tipoRequisito";
+        return "TipoRequisito";
+        } catch (Exception e) {
+           Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        }
+        return "TipoRequisito";
 }
     
     public boolean isEdit(){
     return editarE;  
     }
    
- 
+ public String cancelar(){
+    return "TipoRequisito";
+    }
     
   
   
