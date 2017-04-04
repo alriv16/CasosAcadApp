@@ -8,14 +8,18 @@ package CasosAcadEntities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.validator.Validator;
+import javax.persistence.CascadeType;
 import javax.persistence.EntityManager;
+import javax.persistence.OneToMany;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
+import javax.persistence.*;
 
 /**
  *
@@ -24,6 +28,8 @@ import javax.validation.ValidatorFactory;
 public abstract class AbstractFacade<T> {
 
     private final Class<T> entityClass;
+    
+   
 
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
@@ -58,7 +64,7 @@ public abstract class AbstractFacade<T> {
         Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
         }
     }
-
+    
     public T find(Object id) {
         try{
            if(id!=null&&getEntityManager()!=null){ 
@@ -115,4 +121,38 @@ public abstract class AbstractFacade<T> {
         return 0;
     }
     
+      public boolean create2(T entity) {
+//        getEntityManager().persist(entity);
+        boolean salida = false;
+        T e=this.crear(entity);
+        if (e != null) {
+            salida=true;}
+        try {
+            EntityManager em = this.getEntityManager();
+            if (em!=null) {
+                em.persist(entity);
+                salida=true;
+            }
+            
+        } catch (Exception ex) {
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);}
+        return salida;
+                
+    }
+      public T crear (T entity){
+        T salida=null;
+        try {
+            EntityManager em = this.getEntityManager();
+            if (em!=null && entity!= null) {
+                em.persist(entity);
+                          
+            }
+            
+        } catch (Exception e) {
+        java.util.logging.Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        }
+        return salida;
+              
+    }
+      
 }

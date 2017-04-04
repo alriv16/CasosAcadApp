@@ -115,6 +115,9 @@ public class frmTipoPaso implements Serializable{
     return editarE;  
     }
    
+    public String cancelar(){
+    return "TipoRequisito";
+    }
     
     
 }

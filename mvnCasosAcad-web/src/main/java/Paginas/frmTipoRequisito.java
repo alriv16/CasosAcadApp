@@ -110,9 +110,9 @@ public class frmTipoRequisito implements Serializable {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
         }
         return "TipoRequisito";
-        
-
 }
+    
+    
    public void borrar(TipoRequisito tr){
         try {
            this.tReq.remove(tr);

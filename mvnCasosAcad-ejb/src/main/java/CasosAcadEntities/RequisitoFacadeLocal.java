@@ -15,8 +15,10 @@ import javax.ejb.Local;
  */
 @Local
 public interface RequisitoFacadeLocal {
-
-    void create(Requisito requisito);
+    
+    Requisito crear(Requisito requisito);
+    
+    boolean create2(Requisito requisito);
 
     void edit(Requisito requisito);
 

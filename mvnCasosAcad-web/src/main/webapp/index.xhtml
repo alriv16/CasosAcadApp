@@ -23,7 +23,9 @@
                         <li><h:link value="INICIO" outcome="index"></h:link></li>   
                         <li class='has-sub '><a href='#'><span>CRUD'S</span></a>     
                             <ul>         
-                                <li><h:link value="Tipo Requisito" outcome="TipoRequisito"></h:link></li>         
+                                <li><h:link value="Tipo Requisito" outcome="TipoRequisito"></h:link></li> 
+                                <li><h:link value="Requisito" outcome="Requisito"></h:link></li> 
+                                 <li><h:link value="Tipo Paso" outcome="TipoPaso"></h:link></li>
                                 <li><a href='#'><span>Crud Tipo Paso</span></a></li>     
                             </ul>   
                         </li>   
@@ -45,8 +47,10 @@
             </ui:insert>
         </div>
 
-        <div id="bottom">
-            <ui:insert name="bottom"></ui:insert>
+        <div id="bottom" align="center">
+            <ui:insert name="bottom">
+                
+            </ui:insert>
         </div>
         <img src="./img/minerva.png" style="position: absolute; top: 50%; left: 80%;"/>
     </h:body>
