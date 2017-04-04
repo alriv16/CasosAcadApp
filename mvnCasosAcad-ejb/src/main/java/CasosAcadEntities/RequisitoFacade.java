@@ -28,5 +28,7 @@ public class RequisitoFacade extends AbstractFacade<Requisito> implements Requis
     public RequisitoFacade() {
         super(Requisito.class);
     }
+
+    
     
 }

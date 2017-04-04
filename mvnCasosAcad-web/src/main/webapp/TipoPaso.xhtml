@@ -14,21 +14,20 @@
     </ui:define>
 
     <ui:define name="content">
-      
-                        <h:form>
-                           
+       <nav id="menu">
+            <h:form>
+                <div align="center">Tipo Paso</div>
 
-                               <h:commandLink action="Agregar" >ADD</h:commandLink>
-
-                           
-                        </h:form>
-                   
+                <h:commandButton value="Agregar Tipo Paso" action="AgregarTipoPaso"  style="height: 50px; width: 20 0px"></h:commandButton>  
+            </h:form>
+        </nav>
+        
        <f:view>
-                    <div style="height: 100px; overflow: auto;">
-                        <h:form rendered="#{not empty frmTipoPaso.findAll()}">
+           <div style="height: 150px; overflow: auto;" align="center">
+                        <h:form rendered="#{not empty frmTipoPaso.findAll()}" id="frmtPa">
                             <h:dataTable value="#{frmTipoPaso.findAll()}" var="item"
                                          styleClass="table" headerClass="table-header"
-                                         rowClasses="table-odd-row,table-even-row">
+                                         rowClasses="table-odd-row,table-even-row" width="80%" style="text-align: center">
 
                                 <h:column>
                                     <f:facet name="header">Id</f:facet>
@@ -41,12 +40,14 @@
                           
                                 <h:column>
                                     <h:commandButton value="Seleccionar" action="#{frmTipoPaso.editar(item)}" />
-                                    <h:commandButton value="Borrar" action="#{frmTipoPaso.borrar(item)}" />
+                                    <h:commandButton value="Borrar" action="#{frmTipoPaso.borrar(item)}" >
+                                    <f:ajax execute="@form" render="frmtPa"/>
+                                    </h:commandButton>
                                 </h:column>
 
 
                             </h:dataTable>
-
+    <h1/>
                         </h:form></div>
            <h:panelGroup rendered="#{empty frmTipoPaso.findAll()}">
                         <h:outputText value=" Sin Datos"/>
@@ -73,6 +74,7 @@
 
                             <h:commandButton value="Guardar" action="#{frmTipoPaso.Guardar()}" />
                                 <h:commandButton value="Cancelar" action="#{frmTipoPaso.cancelar()}" />
+                                
                                 
                          
                         </h:form>

@@ -79,13 +79,13 @@
 }
 
 #top a:link, #top a:visited {
-  color: black;
+  color: #ffffff;
   font-weight : bold;
   text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
+  color: #ffffff;
   font-weight : bold;
   text-decoration : underline;
 }
@@ -117,7 +117,7 @@
         transition: color .15s;
 }
 
-#cssmenu > ul > li > a:hover {color: rgb(250,250,250); }
+#cssmenu > ul > li > a:hover {color: #a7a1a1; }
 
 
 #cssmenu > ul > li > ul {
@@ -165,10 +165,10 @@
 #cssmenu > ul ul > li { position: relative;}
 
 #cssmenu ul ul a{
-    color: rgb(50,50,50);
+    color: #f91a1a;
     font-family: Verdana, 'Arial';
     font-size: 13px;
-    background-color: rgb(250,250,250);
+    background-color: #a7a1a1;
     padding: 5px 8px 7px 16px;
     display: block;
 -webkit-transition: background-color .1s;
@@ -177,7 +177,7 @@
         transition: background-color .1s;
 }
 
-#cssmenu ul ul a:hover {background-color: rgb(240,240,240);}
+#cssmenu ul ul a:hover {background-color: red;}
 
 
 #cssmenu ul ul ul {
@@ -187,7 +187,7 @@
     top: -16px;
     left: 206px;
     padding: 16px 0 20px 0;
-    background-color: rgb(250,250,250);
+    background-color: white;
     text-align: left;
     width: 160px;
 -webkit-transition: all .3s;

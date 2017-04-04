@@ -18,7 +18,15 @@ public interface PasoFacadeLocal {
 
     void create(Paso paso);
 
+    Paso crear(Paso paso);
+
+    boolean create2(Paso paso);
+
+    Paso editarBoolean(Paso paso);
+
     void edit(Paso paso);
+
+    boolean edit2(Paso paso);
 
     void remove(Paso paso);
 
@@ -29,5 +37,5 @@ public interface PasoFacadeLocal {
     List<Paso> findRange(int[] range);
 
     int count();
-    
+
 }

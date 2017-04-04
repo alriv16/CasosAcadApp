@@ -12,12 +12,15 @@
     <ui:define name="cabecera">
        Agregar
     </ui:define>
-
+    
+  
+    
+    
     <ui:define name="bottom">
-        <h:form id="myForm" >
+        <h:form id="FrmAgRe">
             <div align="center"> 
             
-                <h:outputText value="Agregar"/>
+                <h:outputText value="Agregar Tipo Requisito"/><h1/>
                 <h:panelGrid columns="2" id="myPanel">
                    
                     <h:outputLabel value="Nombre:" for="nombre" />
@@ -32,7 +35,7 @@
                     <h:commandButton value="Guardar" action="#{frmTipoRequisito.crear()}"></h:commandButton>
                     <h:commandButton value="cancelar" action="#{frmTipoRequisito.cancelar()}">
                     
-                    <f:ajax render=":myForm"/>
+                    <f:ajax render=":FrmAgRe"/>
                     
                 </h:commandButton>
                 </h:panelGrid> 

@@ -154,5 +154,27 @@ public abstract class AbstractFacade<T> {
         return salida;
               
     }
+      public T editarBoolean(T entity) {
+        T salida = null;
+        try {
+            EntityManager em = this.getEntityManager();
+            if(em!=null && entity != null) {
+                em.merge(entity);
+                salida = entity;
+            }
+        }catch(Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        }
+        return salida;
+    }
+       public boolean edit2(T entity) {
+        boolean salida =false;
+        T e = editarBoolean(entity);
+        if(e!=null){
+            salida = true;
+        }
+        return salida;
+    }
+    
       
 }

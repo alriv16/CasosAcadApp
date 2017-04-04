@@ -64,7 +64,7 @@ public class frmTipoPaso implements Serializable{
     public String crear(){
             this.tipoPasoFacade.create(this.tipoPaso);
         this.tipoPaso=new TipoPaso();
-        return "tipoPaso";
+        return "TipoPaso";
 
 }
     public void borrar(TipoPaso tp){
@@ -75,7 +75,7 @@ public class frmTipoPaso implements Serializable{
     public String Editar() {
 
         this.tipoPasoFacade.edit(this.tipoPaso);
-        return "tipoPaso";
+        return "TipoPaso";
 }
 
     public TipoPaso getTipoPaso() {
@@ -108,7 +108,7 @@ public class frmTipoPaso implements Serializable{
         editarE=false;
         editarS=true;
         this.tipoPasoFacade.edit(this.tipoPaso);
-        return "tipoPaso";
+        return "TipoPaso";
 }
     
     public boolean isEdit(){
@@ -116,7 +116,7 @@ public class frmTipoPaso implements Serializable{
     }
    
     public String cancelar(){
-    return "TipoRequisito";
+    return "TipoPaso";
     }
     
     

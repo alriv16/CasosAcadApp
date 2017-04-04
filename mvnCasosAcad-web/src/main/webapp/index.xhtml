@@ -15,20 +15,42 @@
 
     <h:body>
 
-
         <div id="top">
             <ui:insert name="top">
+                <div align="center">
+                ADMINISTRACIÓN ACADÉMICA - CASOS ACAD
+                </div>
                 <div id='cssmenu'>
                     <ul>   
                         <li><h:link value="INICIO" outcome="index"></h:link></li>   
-                        <li class='has-sub '><a href='#'><span>CRUD'S</span></a>     
-                            <ul>         
-                                <li><h:link value="Tipo Requisito" outcome="TipoRequisito"></h:link></li> 
-                                <li><h:link value="Requisito" outcome="Requisito"></h:link></li> 
-                                 <li><h:link value="Tipo Paso" outcome="TipoPaso"></h:link></li>
-                                <li><a href='#'><span>Crud Tipo Paso</span></a></li>     
+                        <li class='has-sub '><a href='#'><span>Tipo Requisito</span></a>     
+                            <ul>
+                                <li><h:link value="Tipos Requisito" outcome="TipoRequisito"></h:link></li>
+                                <li><h:link value="Agregar Tipo Requisito" outcome="Agregar"></h:link></li> 
+                                  
                             </ul>   
-                        </li>   
+                        </li>  
+                        <li class='has-sub '><a href='#'><span> Requisito</span></a>     
+                            <ul>
+                                 <li><h:link value="Requisitos" outcome="Requisito"></h:link></li>
+                                <li><h:link value="Agregar Requisito" outcome="AgregarRequisito"></h:link></li> 
+                                  
+                            </ul>   
+                        </li> 
+                        <li class='has-sub '><a href='#'><span>Tipo Paso</span></a>     
+                            <ul>
+                                 <li><h:link value="Tipos Paso" outcome="TipoPaso"></h:link></li>
+                                <li><h:link value="Agregar Tipo Paso" outcome="AgregarTipoPaso"></h:link></li> 
+                                  
+                            </ul>   
+                        </li> 
+                        <li class='has-sub '><a href='#'><span>Paso</span></a>     
+                            <ul>
+                                 <li><h:link value="Pasos" outcome="Paso"></h:link></li>
+                                <li><h:link value="Agregar Paso" outcome="AgregarPaso"></h:link></li> 
+                                  
+                            </ul>   
+                        </li>  
 
                     </ul>
                 </div></ui:insert>
@@ -52,6 +74,8 @@
                 
             </ui:insert>
         </div>
+        
+      
         <img src="./img/minerva.png" style="position: absolute; top: 50%; left: 80%;"/>
     </h:body>
 

@@ -139,10 +139,12 @@ public class frmTipoRequisito implements Serializable {
              this.tipo_requisito= tr;
         editarE=true;
         editarS=false;
+        
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+            System.out.println("Error"+e.getMessage());
         }
-       
+      
 }
     public String Guardar() {
         
@@ -153,6 +155,7 @@ public class frmTipoRequisito implements Serializable {
         return "TipoRequisito";
         } catch (Exception e) {
            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+           System.out.println("Error"+e.getMessage());
         }
         return "TipoRequisito";
 }

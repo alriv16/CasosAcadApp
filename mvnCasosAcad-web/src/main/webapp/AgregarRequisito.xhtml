@@ -17,11 +17,12 @@
     <ui:define name="bottom">
        
         <div align="center">
+           <h:outputText value="Agregar Requisito"/><h1/>
              <h:form>
          <h:panelGrid columns="2">
              <h:outputLabel value=" id Tipo Requisito:" for="TipoRequisito" />
              <h:selectOneListbox id="TipoRequisito" value="#{frmRequisito.tipoSeleccionado}" 
-                                 style="width: 200px" required="true" styleClass="center_content" size="1" >
+                                 style="width: 200px"  styleClass="center_content" size="1" >
                  <f:selectItem itemLabel="Seleccione Tipo" itemValue="" />
                  <f:selectItems value="#{frmRequisito.listaTipo}" 
                                 var="tipo" 
@@ -32,10 +33,11 @@
         </h:selectOneListbox>
          
          <h:outputLabel value="Requisito:" for="Requisito" />
-         <h:inputText id="Requisito" readonly="false" value="#{frmRequisito.tipoRequisito.requisito}" title="requisito" required="true" requiredMessage="The IdTipoRequisito field is required."/>
-         <h:message showDetail="true" for="btnNuevo" />
-         <h:commandButton id="btnNuevo" value="Nuevo" actionListener="#{frmRequisito.btnCrearAction}"/>    
+         <h:inputText id="Requisito" readonly="false" value="#{frmRequisito.requisito.requisito}" title="requisito" requiredMessage="The IdTipoRequisito field is required."/>
+
         </h:panelGrid>
+                  <h:commandButton id="btnNuevo" value="Guardar" actionListener="#{frmRequisito.btnCrearAction}"/>  
+         <h:commandButton id="btnCancelar" value="Cancelar" actionListener="#{frmRequisito.cancelar()}"/> 
         </h:form>
         </div>
     </ui:define>

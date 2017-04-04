@@ -34,7 +34,27 @@ public class frmRequisito implements Serializable{
      @EJB
     private RequisitoFacadeLocal requisitoFacade;
      
-     private Requisito tipoRequisito= new Requisito();
+   
+     private Requisito requisito= new Requisito();
+     private boolean edit;
+
+    public boolean isEdit() {
+        return edit;
+    }
+
+    public void setEdit(boolean edit) {
+        this.edit = edit;
+    }
+
+    public Requisito getRequisito() {
+        return requisito;
+    }
+
+    
+    
+    public void setRequisito(Requisito requisito) {
+        this.requisito = requisito;
+    }
 
     public TipoRequisitoFacadeLocal getTipoRequisitoFacade() {
         return tipoRequisitoFacade;
@@ -52,13 +72,7 @@ public class frmRequisito implements Serializable{
         this.requisitoFacade = requisitoFacade;
     }
 
-    public Requisito getTipoRequisito() {
-        return tipoRequisito;
-    }
-
-    public void setTipoRequisito(Requisito tipoRequisito) {
-        this.tipoRequisito = tipoRequisito;
-    }
+   
 
     public List<TipoRequisito> getListaTipo() {
         return listaTipo;
@@ -82,12 +96,12 @@ public class frmRequisito implements Serializable{
     
      public void btnCrearAction(ActionEvent ae){
        try {
-           if(this.tipoRequisito != null && this.requisitoFacade != null) {
+           if(this.requisito != null && this.requisitoFacade != null) {
                boolean resultado;
-               resultado = this.requisitoFacade.create2(tipoRequisito);
-               FacesMessage msj = new FacesMessage(FacesMessage.SEVERITY_INFO, resultado?"Creado con exito":"Error", null);
-              
+               resultado = this.requisitoFacade.create2(requisito);
+               FacesMessage msj = new FacesMessage(FacesMessage.SEVERITY_INFO, resultado?"Creado con exito":"Error", null); 
                FacesContext.getCurrentInstance().addMessage(null, msj);
+               this.cancelar();
            }
        } catch (Exception e) {
        }
@@ -106,9 +120,9 @@ public class frmRequisito implements Serializable{
     }
      
      public Integer getTipoSeleccionado(){
-     if(tipoRequisito != null){
-            if(tipoRequisito.getIdTipoRequisito()!= null){
-                return this.tipoRequisito.getIdTipoRequisito().getIdTipoRequisito();
+     if(requisito != null){
+            if(requisito.getIdTipoRequisito()!= null){
+                return this.requisito.getIdTipoRequisito().getIdTipoRequisito();
             } else {
                 return null;
             }         
@@ -121,10 +135,10 @@ public class frmRequisito implements Serializable{
         if(idTipo >= 0 && !this.listaTipo.isEmpty()){
             for(TipoRequisito tre : this.getListaTipo()) {
                 if(Objects.equals(tre.getIdTipoRequisito(), idTipo)) {
-                    if(this.tipoRequisito.getIdTipoRequisito() != null) {
-                        this.tipoRequisito.getIdTipoRequisito().setIdTipoRequisito(idTipo);
+                    if(this.requisito.getIdTipoRequisito() != null) {
+                        this.requisito.getIdTipoRequisito().setIdTipoRequisito(idTipo);
                     } else {
-                        this.tipoRequisito.setIdTipoRequisito(tre);
+                        this.requisito.setIdTipoRequisito(tre);
                     }
                 }
             }
@@ -148,5 +162,35 @@ public class frmRequisito implements Serializable{
         return salida;
 
     }
+    
+     public void btnModificarAction(ActionEvent ae) {
+       try {
+           edit=false;
+           if(this.requisito!= null && this.requisitoFacade != null) {
+               boolean resultado = this.requisitoFacade.edit2(requisito);
+               FacesMessage msj = new FacesMessage(FacesMessage.SEVERITY_INFO, resultado?"Editado con exito":"Error", null);
+               FacesContext.getCurrentInstance().addMessage(null, msj);
+               
+           }
+       } catch (Exception e) {
+           System.out.println("ERROR: "+ e.getMessage());
+       }
+   }
+     
+     public void editar(Requisito seleccionado){
+        edit=true;
+         this.requisito= seleccionado;
+        
+     }
+     
+     public String MostrarNuevo(){
+     return "AgregarRequisito";
+     }
+     
+     
+     public String cancelar(){
+    return "Requisito";
+    }
+     
     
 }

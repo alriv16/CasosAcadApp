@@ -2,48 +2,50 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./index.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
+   
     <ui:define name="titulo">
-        Agregar
+        
     </ui:define>
 
     <ui:define name="cabecera">
-        <h1>Agregar</h1>
+   
+        
     </ui:define>
 
     <ui:define name="content">
         <nav id="menu">
             <h:form>
-                <div align="center">REQUISITO</div>
+                <div align="center">PASO</div>
 
-                <h:commandButton value="Agregar Requisito" action="AgregarRequisito"  style="height: 50px; width: 150px"></h:commandButton>  
+                <h:commandButton value="Agregar Paso" action="AgregarPaso"  style="height: 50px; width: 150px"></h:commandButton>  
             </h:form>
         </nav>
         <f:view>
             <div style="height: 150px; overflow: auto;" align="center">
-                <h:form rendered="#{not empty frmRequisito.findAll()}" id="frmReq">
-                    <h:dataTable value="#{frmRequisito.findAll()}" var="item"
+                <h:form rendered="#{not empty frmPaso.findAll()}" id="frmReq">
+                    <h:dataTable value="#{frmPaso.findAll()}" var="item"
                                  styleClass="table" headerClass="table-header"
                                  rowClasses="table-odd-row,table-even-row" 
                                  style="text-align: center" width="80%">
 
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            <h:outputText value="#{item.idRequisito}" />
+                            <h:outputText value="#{item.idPaso}" />
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Tipo De Requisito</f:facet>
-                            <h:outputText value="#{item.idTipoRequisito.nombre}" />
+                            <f:facet name="header">Tipo De Paso</f:facet>
+                            <h:outputText value="#{item.idTipoPaso.paso}" />
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Requisito</f:facet>
-                            <h:outputText value="#{item.requisito}" />
+                            <f:facet name="header">Paso</f:facet>
+                            <h:outputText value="#{item.paso}" />
                         </h:column>
                         <h:column>
-                            <h:commandButton value="Modificar" action="#{frmRequisito.editar(item)}" />
-                            <h:commandButton value="Borrar" action="#{frmRequisito.borrar(item)}" >
+                            <h:commandButton value="Seleccionar" action="#{frmPaso.editar(item)}" />
+                            <h:commandButton value="Borrar" action="#{frmPaso.borrar(item)}" >
                                 <f:ajax execute="@form" render="frmReq"/>
                             </h:commandButton>
                         </h:column>                  
@@ -52,42 +54,42 @@
             </div>
                 <h1/>
             <div align="center">
-                <h:panelGroup rendered="#{empty frmRequisito.findAll()}">
+                <h:panelGroup rendered="#{empty frmPaso.findAll()}">
                     <h:outputText value=" Sin Datos"/>
                 </h:panelGroup>
-                <h:panelGroup rendered="#{!frmRequisito.edit}">
+                <h:panelGroup rendered="#{!frmPaso.edit}">
 
 
                 </h:panelGroup>
-                <h:panelGroup rendered="#{frmRequisito.edit}">
+                <h:panelGroup rendered="#{frmPaso.edit}">
 
 
                     <h:form id="editar">
 
-                        <h:outputText value=" Editar Id: #{frmRequisito.requisito.idRequisito}"/>
+                        <h:outputText value=" Editar Id: #{frmPaso.paso.idPaso}"/>
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="IdRequisito:" for="idRequisito" />
-                            <h:inputText id="idRequisito" readonly="true" value="#{frmRequisito.requisito.idRequisito}" 
+                            <h:outputLabel value="Id Paso:" for="idRequisito" />
+                            <h:inputText id="idRequisito" readonly="true" value="#{frmPaso.paso.idPaso}" 
                                          title="Id Requisito" required="true" 
                                          requiredMessage="The IdTipoRequisito field is required."/>
                             <h:outputLabel value="Nombre:" for="nombre" />
-                            <h:inputText id="nombre" value="#{frmRequisito.requisito.requisito}" 
+                            <h:inputText id="nombre" value="#{frmPaso.paso.paso}" 
                                          title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
                             <h:outputLabel value=" id Tipo Requisito:" for="TipoRequisito" />
-                            <h:selectOneListbox id="TipoRequisito" value="#{frmRequisito.tipoSeleccionado}" 
+                            <h:selectOneListbox id="TipoRequisito" value="#{frmPaso.tipoSeleccionado}" 
                                                 style="width: 200px" required="true" styleClass="center_content" size="1" >
                                 <f:selectItem itemLabel="Seleccione Tipo" itemValue="" />
-                                <f:selectItems value="#{frmRequisito.listaTipo}" 
+                                <f:selectItems value="#{frmPaso.listaTipo}" 
                                                var="tipo" 
-                                               itemLabel="#{tipo.nombre}" 
-                                               itemValue="#{tipo.idTipoRequisito}">
+                                               itemLabel="#{tipo.paso}" 
+                                               itemValue="#{tipo.idTipoPaso}">
 
                                 </f:selectItems>
                             </h:selectOneListbox>
 
                         </h:panelGrid>
-                        <h:commandButton value="Guardar" actionListener="#{frmRequisito.btnModificarAction}" />
-                        <h:commandButton value="Cancelar" action="#{frmRequisito.cancelar()}" />
+                        <h:commandButton value="Guardar" actionListener="#{frmPaso.btnModificarAction}" />
+                        <h:commandButton value="Cancelar" action="#{frmPaso.cancelar()}" />
 
 
                     </h:form>
@@ -99,6 +101,8 @@
 
     </ui:define>
 
-
+    <ui:define name="bottom">
+        
+    </ui:define>
 
 </ui:composition>
