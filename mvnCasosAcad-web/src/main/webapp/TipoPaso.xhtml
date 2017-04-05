@@ -27,7 +27,7 @@
                         <h:form rendered="#{not empty frmTipoPaso.findAll()}" id="frmtPa">
                             <h:dataTable value="#{frmTipoPaso.findAll()}" var="item"
                                          styleClass="table" headerClass="table-header"
-                                         rowClasses="table-odd-row,table-even-row" width="80%" style="text-align: center">
+                                         rowClasses="table-odd-row,table-even-row" width="80%" style="text-align: center" class="table-hover">
 
                                 <h:column>
                                     <f:facet name="header">Id</f:facet>
@@ -39,7 +39,7 @@
                                 </h:column>
                           
                                 <h:column>
-                                    <h:commandButton value="Seleccionar" action="#{frmTipoPaso.editar(item)}" />
+                                    <h:commandButton value="Modificar" action="#{frmTipoPaso.editar(item)}" />
                                     <h:commandButton value="Borrar" action="#{frmTipoPaso.borrar(item)}" >
                                     <f:ajax execute="@form" render="frmtPa"/>
                                     </h:commandButton>
